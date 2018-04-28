@@ -1,0 +1,208 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="tech.arinzedroid.assessmentone.ItemDetailFragment" >
+
+    <RelativeLayout
+        android:id="@+id/layout1"
+        android:padding="16dp"
+        android:background="#323232"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text=""
+            android:textColor="@color/white"
+            android:id="@+id/title"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:paddingBottom="20dp"
+            android:layout_height="wrap_content" />
+        <RelativeLayout
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/folks"
+                android:textColor="@color/white"
+                android:text=""
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/stars"
+                android:textColor="@color/white"
+                android:layout_toRightOf="@+id/folks"
+                android:layout_toEndOf="@+id/folks"
+                android:text=""
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:padding="16dp"
+        android:id="@+id/layout2"
+        android:layout_below="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:text=""
+            android:id="@+id/repo_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:text=""
+            android:id="@+id/repo_url"
+            android:layout_below="@+id/repo_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/repo_topics"
+            android:textAllCaps="false"
+            android:layout_below="@+id/repo_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <RelativeLayout
+            android:layout_margin="20dp"
+            android:id="@+id/layout3"
+            android:background="@drawable/border_bg"
+            android:layout_below="@+id/repo_topics"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:padding="12dp"
+                android:id="@+id/detail_text"
+                android:text="Details"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <View
+                android:id="@+id/line"
+                android:background="@color/colorAccent"
+                android:layout_below="@+id/detail_text"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+            <TextView
+                android:layout_below="@+id/line"
+                android:padding="12dp"
+                android:id="@+id/owner"
+                android:layout_width="wrap_content"
+                android:text="Owner"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_below="@+id/line"
+                android:padding="12dp"
+                android:id="@+id/owner_text"
+                android:layout_width="wrap_content"
+                android:layout_toRightOf="@+id/homepage"
+                android:layout_toEndOf="@+id/homepage"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:paddingBottom="12dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:layout_below="@+id/owner"
+                android:id="@+id/type"
+                android:layout_width="wrap_content"
+                android:text="Type"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:paddingBottom="12dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:layout_below="@+id/owner"
+                android:id="@+id/type_text"
+                android:layout_width="wrap_content"
+                android:layout_toRightOf="@+id/homepage"
+                android:layout_toEndOf="@+id/homepage"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:paddingBottom="12dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:layout_below="@+id/type"
+                android:id="@+id/homepage"
+                android:layout_width="wrap_content"
+                android:text="HomePage"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:paddingBottom="12dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:layout_below="@+id/type"
+                android:id="@+id/homepage_text"
+                android:layout_width="wrap_content"
+                android:layout_toRightOf="@+id/homepage"
+                android:layout_toEndOf="@+id/homepage"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:paddingBottom="12dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:layout_below="@+id/homepage"
+                android:id="@+id/created"
+                android:layout_width="wrap_content"
+                android:text="Created"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:paddingBottom="12dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:layout_below="@+id/homepage"
+                android:layout_toRightOf="@+id/homepage"
+                android:layout_toEndOf="@+id/homepage"
+                android:id="@+id/created_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="12dp"
+                android:layout_below="@+id/created"
+                android:id="@+id/updated"
+                android:layout_width="wrap_content"
+                android:text="Updated"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="12dp"
+                android:layout_below="@+id/created"
+                android:id="@+id/updated_text"
+                android:layout_width="wrap_content"
+                android:layout_toRightOf="@+id/homepage"
+                android:layout_toEndOf="@+id/homepage"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <TextView
+            android:layout_marginBottom="8dp"
+            android:text="Description"
+            android:textStyle="bold"
+            android:id="@+id/desc"
+            android:layout_below="@+id/layout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/desc_text"
+            android:layout_below="@+id/desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <ProgressBar
+            android:visibility="gone"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/desc"
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+</RelativeLayout>
