@@ -70,21 +70,7 @@ public class ItemDetailFragment extends Fragment {
 
         if(getArguments() != null)
         if (getArguments().containsKey(ARG_ITEM_ID)) {
-            // Load the dummy content specified by the fragment
-            // arguments. In a real-world scenario, use a Loader
-            // to load content from a content provider.
             mItem = Parcels.unwrap(getArguments().getParcelable(ARG_ITEM_ID));
-
-            Activity activity = this.getActivity();
-            CollapsingToolbarLayout appBarLayout =  activity.findViewById(R.id.toolbar_layout);
-            ImageView imageView = activity.findViewById(R.id.title_image);
-            if (appBarLayout != null) {
-                if(mItem != null){
-                    appBarLayout.setTitle(mItem.getName());
-                    Picasso.get().load(mItem.getOwner().getAvatarUrl()).into(imageView);
-                }
-
-            }
         }
     }
 
@@ -93,6 +79,17 @@ public class ItemDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.item_detail, container, false);
         ButterKnife.bind(this,rootView);
+
+        Activity activity = this.getActivity();
+        CollapsingToolbarLayout appBarLayout =  activity.findViewById(R.id.toolbar_layout);
+        ImageView imageView = activity.findViewById(R.id.title_image);
+        if (appBarLayout != null) {
+            if(mItem != null){
+                appBarLayout.setTitle(mItem.getName());
+                Picasso.get().load(mItem.getOwner().getAvatarUrl()).into(imageView);
+            }
+
+        }
 
         if (mItem != null) {
             String _folks = "Folks "+ mItem.getForks().toString();
