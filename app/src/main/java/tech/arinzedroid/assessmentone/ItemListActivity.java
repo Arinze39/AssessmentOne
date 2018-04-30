@@ -1,11 +1,15 @@
 package tech.arinzedroid.assessmentone;
 
+import android.Manifest;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -47,10 +51,27 @@ public class ItemListActivity extends AppCompatActivity implements ItemClickedIn
     private AppViewModel appViewModel;
     ArrayList<GithubModel.Item> items;
     ProgressBar progressBar;
+    private final int m_permissionCode = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT < 23) {
+            startApp();
+        }
+        else {
+            checkPermissions(m_permissionCode);
+        }
+    }
+
+    private void checkPermissions(int permissionCode){
+        String permission = Manifest.permission.INTERNET;
+        if (ActivityCompat.checkSelfPermission(getApplicationContext(), permission) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.INTERNET},permissionCode);
+        }else startApp();
+    }
+
+    private void startApp(){
         setContentView(R.layout.activity_item_list);
 
         progressBar = findViewById(R.id.progress_bar);
@@ -82,6 +103,18 @@ public class ItemListActivity extends AppCompatActivity implements ItemClickedIn
                 recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(ItemListActivity.this,items,ItemListActivity.this));
             }
         });
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,@NonNull String permissions[],@NonNull int[] grantResults) {
+        switch (requestCode) {
+            case m_permissionCode: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    startApp();
+                }else finish();
+            }
+        }
     }
 
     @Override
